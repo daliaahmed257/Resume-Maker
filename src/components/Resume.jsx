@@ -1,16 +1,22 @@
 
-const Resume = ({ userDetails }) => {
+const Resume = ({userDetails, summary}) => {
+
     return (
-        <div>
-        <h2>Resume</h2>
-        <p><strong>First Name:</strong> {userDetails.firstname}</p>
-        <p><strong>Last Name:</strong> {userDetails.lastname}</p>
-        <p><strong>Job Title:</strong> {userDetails.jobtitle}</p>
-        <p><strong>Address 1:</strong> {userDetails.address1}</p>
-        <p><strong>Address 2:</strong> {userDetails.address2}</p>
-        <p><strong>Phone:</strong> {userDetails.phone}</p>
-        <p><strong>Email:</strong> {userDetails.email}</p>
-      </div>
+        <div className="container resume p-3">
+            <h1 className="text-center">{userDetails.firstname} {userDetails.lastname}</h1>
+            <div className="row justify-content-center">
+                <p className="col-auto">{userDetails.city}, {userDetails.state}</p>
+                <p className="col-auto">{userDetails.phone}</p>
+                <p className="col-auto">{userDetails.email}</p>
+            </div>
+            <div className="container">
+                <div className="row align-items-center text-right">
+                <h4 className="col-auto">{summary.jobtitle}</h4>
+                <div className="col divider" />
+                </div>
+                <p>{summary.summary}</p>
+            </div>
+        </div>
     )
 }
 
