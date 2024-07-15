@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const PersonalDetails = ({ onFormSubmit }) => {
+
+    const navigate = useNavigate();
 
     const [userDetails, setUserDetails] = useState({
         firstname: 'John',
@@ -21,13 +24,13 @@ const PersonalDetails = ({ onFormSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onFormSubmit(userDetails)
+        navigate('/summary')
     }
-
 
     return (
         <div className="container">
             <div className="forms">
-                <h1 className="text-center">Personal Details</h1>
+                <h2 className="text-center mb-5">Personal Details</h2>
                 <form className="row g-3" onSubmit={handleSubmit}>
                     <div className="col-6">
                         <label htmlFor="firstname" className="form-label">First Name</label>
@@ -37,11 +40,6 @@ const PersonalDetails = ({ onFormSubmit }) => {
                     <div className="col-6">
                         <label htmlFor="lastname" className="form-label">Last Name</label>
                         <input type="text" className="form-control" name="lastname" onChange={handleChange} />
-                    </div>
-
-                    <div className="col-12">
-                        <label htmlFor="jobtitle" className="form-label">Job Title</label>
-                        <input type="text" className="form-control" name="jobtitle" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
@@ -64,15 +62,14 @@ const PersonalDetails = ({ onFormSubmit }) => {
                         <input type="email" className="form-control" name="email" onChange={handleChange} />
                     </div>
 
-                    <div className="col-12">
+                    {/* <div className="col-12">
                         <button type="submit" className="btn btn-primary">Add</button>
+                    </div> */}
+
+                    <div className="d-flex justify-content-end mt-5">
+                        <button className="btn btn-primary" type="submit">Continue</button>
                     </div>
                 </form>
-            </div>
-            <div className="d-flex justify-content-end mt-2">
-                <Link to="/summary">
-                    <button className="btn btn-secondary">Next</button>
-                </Link>
             </div>
 
         </div>

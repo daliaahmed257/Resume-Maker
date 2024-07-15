@@ -19,34 +19,26 @@ const Summ = ({ onFormSubmit }) => {
 
 
     return (
-        <div className="container ">
-            <div className="forms">
-                <h1 className="text-center">Summary</h1>
-                <form className="row g-3" onSubmit={handleSubmit}>
-                    <div className="col-12">
-                        <label htmlFor="jobtitle" className="form-label">Job Title</label>
-                        <input type="text" className="form-control" name="jobtitle" onChange={handleChange} />
-                    </div>
+        <div className="container">
+            <h2 className="text-center">Summary</h2>
+            <form className="row g-3" onSubmit={handleSubmit}>
+                <div className="col-12">
+                    <label htmlFor="jobtitle" className="form-label">Job Title</label>
+                    <input type="text" className="form-control" name="jobtitle" onChange={handleChange} />
+                </div>
 
-                    <div className="col-12">
-                        <label htmlFor="summary" className="form-label">Summary</label>
-                        <textarea className="form-control" name="summary" onChange={handleChange} />
-                    </div>
+                <div className="col-12">
+                    <label htmlFor="summary" className="form-label">Summary</label>
+                    <textarea className="form-control" name="summary" onChange={handleChange} />
+                </div>
 
-                    <div className="col-12">
-                        <button type="submit" className="btn btn-primary">Add</button>
-                    </div>
-                </form>
-            </div>
-            <div className="d-flex justify-content-between mt-2">
-                <Link to="/">
-                    <button className="btn btn-outline-secondary">Back</button>
-                </Link>
-                <Link to="/summary">
-                    <button className="btn btn-secondary">Next</button>
-                </Link>
-            </div>
-
+                <div className="d-flex justify-content-end mt-5" style={{ gap: '32px' }}>
+                    <Link to="/">
+                        <button className="btn btn-outline-secondary" type="submit">Back</button>
+                    </Link>
+                    <button className="btn btn-primary" type="submit">Continue</button>
+                </div>
+            </form>
         </div>
     )
 }
