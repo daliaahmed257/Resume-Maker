@@ -21,9 +21,9 @@ const Resume = ({ userDetails, summary, skills }) => {
                     <h4 className="col-auto">Skills</h4>
                     <div className="col divider" />
                 </div>
-                <ul>
+                <ul className="row">
                     {skills.map((skill, index) => (
-                        <li key={index}>{skill}</li>
+                        <li className="col-auto gx-5 skill-item" key={index}>{skill}</li>
                     ))}
                 </ul>
             </div>

@@ -37,10 +37,12 @@ const Skills = ({ onFormSubmit }) => {
                     </div>
 
                 <div className="d-flex justify-content-end mt-5" style={{ gap: '32px' }}>
-                    <Link to="/">
+                    <Link to="/summary">
                         <button className="btn btn-outline-secondary" type="submit">Back</button>
                     </Link>
-                    {/* <button className="btn btn-primary">Continue</button> */}
+                    <Link to="/summary">
+                        <button className="btn btn-primary" type="submit">Continue</button>
+                    </Link>
                 </div>
             </form>
         </div>
