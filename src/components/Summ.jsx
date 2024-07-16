@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const Summ = ({ onFormSubmit }) => {
+
+    const navigate = useNavigate()
 
     const [summary, setSummary] = useState({
         jobtitle: 'Accountant',
@@ -15,6 +18,7 @@ const Summ = ({ onFormSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onFormSubmit(summary)
+        navigate('/skills')
     }
 
 
