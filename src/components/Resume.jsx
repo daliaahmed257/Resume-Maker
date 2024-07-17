@@ -1,5 +1,12 @@
 
-const Resume = ({ userDetails, summary, skills }) => {
+const Resume = ({ userDetails, summary, skills, experience }) => {
+
+    const formatMonthYear = (dateString) => {
+        const date = new Date(dateString);
+        const month = date.toLocaleString('en-US', { month: 'short' });
+        const year = date.getFullYear();
+        return `${month} ${year}`;
+    };
 
     return (
         <div className="container resume p-3">
@@ -11,7 +18,7 @@ const Resume = ({ userDetails, summary, skills }) => {
             </div>
             <div className="container">
                 <div className="row align-items-center text-right">
-                    <h4 className="col-auto">{summary.jobtitle}</h4>
+                    <h4 className="col-auto">{summary.personalTitle}</h4>
                     <div className="col divider" />
                 </div>
                 <p>{summary.summary}</p>
@@ -26,6 +33,22 @@ const Resume = ({ userDetails, summary, skills }) => {
                         <li className="col-auto gx-5 skill-item" key={index}>{skill}</li>
                     ))}
                 </ul>
+            </div>
+
+            <div className="container">
+                <div className="row align-items-center text-right">
+                    <h4 className="col-auto">Experience</h4>
+                    <div className="col divider" />
+                </div>
+
+                {experience.map((exp, index) => (
+                    <div className="row" key={index}>
+                        <p>{exp.jobtitle}</p>
+                        <p>{exp.employer} | {exp.city}, {exp.state} | {formatMonthYear(exp.startDate)} - {formatMonthYear(exp.endDate)}</p>
+                        <p>{exp.responsibilities}</p>
+                    </div>
+                ))}
+
             </div>
         </div>
     )

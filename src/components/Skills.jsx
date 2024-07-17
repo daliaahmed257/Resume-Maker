@@ -40,7 +40,7 @@ const Skills = ({ onFormSubmit }) => {
                     <Link to="/summary">
                         <button className="btn btn-outline-secondary" type="submit">Back</button>
                     </Link>
-                    <Link to="/summary">
+                    <Link to="/experience">
                         <button className="btn btn-primary" type="submit">Continue</button>
                     </Link>
                 </div>

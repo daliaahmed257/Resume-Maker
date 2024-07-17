@@ -9,7 +9,6 @@ const PersonalDetails = ({ onFormSubmit }) => {
     const [userDetails, setUserDetails] = useState({
         firstname: 'John',
         lastname: 'Doe',
-        jobtitle: 'Accountant',
         city: 'Newark',
         state: 'NJ',
         phone: 'xxx-xxx-xxxx',
@@ -29,7 +28,6 @@ const PersonalDetails = ({ onFormSubmit }) => {
 
     return (
         <div className="container">
-            <div className="forms">
                 <h2 className="text-center mb-5">Personal Details</h2>
                 <form className="row g-3" onSubmit={handleSubmit}>
                     <div className="col-6">
@@ -70,7 +68,6 @@ const PersonalDetails = ({ onFormSubmit }) => {
                         <button className="btn btn-primary" type="submit">Continue</button>
                     </div>
                 </form>
-            </div>
 
         </div>
     )

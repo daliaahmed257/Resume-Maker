@@ -5,6 +5,7 @@ import PersonalDetails from './components/PersonalDetails'
 import Resume from './components/Resume'
 import Summ from './components/Summ'
 import Skills from './components/Skills'
+import Experience from './components/Experience'
 
 function App() {
 
@@ -18,24 +19,49 @@ function App() {
   });
 
   const [summary, setSummary] = useState({
-    jobtitle: 'Accountant',
+    personalTitle: 'Accountant',
     summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   });
 
   const [skills, setSkills] = useState(['detail oriented', 'Analytical Thinking', 'Teamwork'])
 
+  const handleSkillsSubmit = (details) => {
+    setSkills(details);
+}
+
+const formatDate = (date) => {
+  return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(date);
+};
+
+const [experience, setExperience] = useState([{
+  jobtitle: 'Accountant',
+  employer: 'Chase Bank',
+  city: 'New York',
+  state: 'NY',
+  startDate: formatDate(new Date()),
+  endDate: formatDate(new Date()),
+  current: false,
+  responsibilities: 'Managed all aspects of month-end financial close process, ensuring accuracy and timeliness in preparation of financial statements'
+}])
+
+// const handleExpSubmit = (details) => {
+//   if (details.jobtitle && details.employer) {
+//       setExperience(details)
+//   }
+//   console.log(details)
+// };
+
+const handleExpSubmit = (newExperience) => {
+  setExperience(...newExperience);
+};
 
   const handleFormSubmit = (details) => {
-    if(details.jobtitle && details.summary) {
+    if(details.personalTitle && details.summary) {
         setSummary(details);
-    }else {
+    } else {
         setUserDetails(details);
     }
 };
-
-const handleSkillsSubmit = (details) => {
-    setSkills(details);
-}
 
   return (
     <div className='container mt-5'>
@@ -45,10 +71,11 @@ const handleSkillsSubmit = (details) => {
               <Route path='/' element={<PersonalDetails onFormSubmit={handleFormSubmit} />} />
               <Route path='/summary' element={<Summ onFormSubmit={handleFormSubmit}/>} />
               <Route path='/skills' element={<Skills onFormSubmit={handleSkillsSubmit}/>} />
+              <Route path='/experience' element={<Experience onFormSubmit={handleExpSubmit}/>} />
             </Routes>
         </div>
         <div className='col'>
-          <Resume userDetails={userDetails} summary={summary} skills={skills}/>
+          <Resume userDetails={userDetails} summary={summary} skills={skills} experience={experience}/>
         </div>
       </div>
     </div>
