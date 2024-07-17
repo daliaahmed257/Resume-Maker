@@ -43,9 +43,9 @@ const Resume = ({ userDetails, summary, skills, experience }) => {
 
                 {experience.map((exp, index) => (
                     <div className="row" key={index}>
-                        <p>{exp.jobtitle}</p>
-                        <p>{exp.employer} | {exp.city}, {exp.state} | {formatMonthYear(exp.startDate)} - {formatMonthYear(exp.endDate)}</p>
-                        <p>{exp.responsibilities}</p>
+                        <p className="fw-bold exp-p">{exp.jobtitle}</p>
+                        <p className="exp-p">{exp.employer} | {exp.city}, {exp.state} | {formatMonthYear(exp.startDate)} - {formatMonthYear(exp.endDate)}</p>
+                        <p className="exp-p">{exp.responsibilities}</p>
                     </div>
                 ))}
 

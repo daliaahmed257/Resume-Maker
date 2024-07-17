@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 const Experience = ({ onFormSubmit }) => {
 
@@ -80,6 +81,14 @@ const Experience = ({ onFormSubmit }) => {
                     <button type="submit" className="btn" onClick={handleAddExp}>+ Add</button>
                 </div>
 
+                <div className="d-flex justify-content-end mt-5" style={{ gap: '32px' }}>
+                    <Link to="/skills">
+                        <button className="btn btn-outline-secondary" type="submit">Back</button>
+                    </Link>
+                    <Link to="/experience">
+                        <button className="btn btn-primary" type="submit">Continue</button>
+                    </Link>
+                </div>
 
             </form>
         </div>
