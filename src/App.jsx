@@ -10,6 +10,7 @@ import Education from './components/Education'
 
 function App() {
 
+  //user details
   const [userDetails, setUserDetails] = useState({
     firstname: 'John',
     lastname: 'Doe',
@@ -19,11 +20,21 @@ function App() {
     email: 'johndoe@gmail.com',
   });
 
+  //user summary
   const [summary, setSummary] = useState({
     personalTitle: 'Accountant',
     summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   });
 
+  const handleFormSubmit = (details) => {
+    if(details.personalTitle && details.summary) {
+        setSummary(details);
+    } else {
+        setUserDetails(details);
+    }
+};
+
+  //skilss
   const [skills, setSkills] = useState(['detail oriented', 'Analytical Thinking', 'Teamwork'])
 
   const handleSkillsSubmit = (details) => {
@@ -33,7 +44,7 @@ function App() {
 const formatDate = (date) => {
   return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(date);
 };
-
+//experience
 const [experience, setExperience] = useState([{
   jobtitle: 'Accountant',
   employer: 'Chase Bank',
@@ -45,24 +56,22 @@ const [experience, setExperience] = useState([{
   responsibilities: 'Managed all aspects of month-end financial close process, ensuring accuracy and timeliness in preparation of financial statements'
 }])
 
-// const handleExpSubmit = (details) => {
-//   if (details.jobtitle && details.employer) {
-//       setExperience(details)
-//   }
-//   console.log(details)
-// };
 
 const handleExpSubmit = (newExperience) => {
   setExperience(...newExperience);
 };
 
-  const handleFormSubmit = (details) => {
-    if(details.personalTitle && details.summary) {
-        setSummary(details);
-    } else {
-        setUserDetails(details);
-    }
-};
+//Education
+const [education, setEducation] = useState([{
+  name: 'Rutgers',
+  location: 'Newbrunswick, NJ',
+  degree: 'Bachelors',
+  study: 'Accounting'
+}])
+
+const handleEducationSubmit = (newEducation) => {
+  setEducation(...newEducation);
+}
 
   return (
     <div className='container mt-5'>
@@ -73,11 +82,11 @@ const handleExpSubmit = (newExperience) => {
               <Route path='/summary' element={<Summ onFormSubmit={handleFormSubmit}/>} />
               <Route path='/skills' element={<Skills onFormSubmit={handleSkillsSubmit}/>} />
               <Route path='/experience' element={<Experience onFormSubmit={handleExpSubmit}/>} />
-              <Route path='/education' element={<Education />}/>
+              <Route path='/education' element={<Education onFormSubmit={handleEducationSubmit}/>}/>
             </Routes>
         </div>
         <div className='col'>
-          <Resume userDetails={userDetails} summary={summary} skills={skills} experience={experience}/>
+          <Resume userDetails={userDetails} summary={summary} skills={skills} experience={experience} education={education}/>
         </div>
       </div>
     </div>
