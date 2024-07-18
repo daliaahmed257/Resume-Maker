@@ -59,7 +59,7 @@ const Education = ({onFormSubmit}) => {
                         <button className="btn btn-outline-secondary" type="submit">Back</button>
                     </Link>
                     <Link to="/education">
-                        <button className="btn btn-primary" type="submit">Continue</button>
+                        <button className="btn btn-primary" type="submit">Download</button>
                     </Link>
                 </div>
             </form>

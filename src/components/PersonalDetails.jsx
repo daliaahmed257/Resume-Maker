@@ -13,6 +13,9 @@ const PersonalDetails = ({ onFormSubmit }) => {
         state: 'NJ',
         phone: 'xxx-xxx-xxxx',
         email: 'johndoe@gmail.com',
+        link: 'https://www.linkedin.com/',
+        linkName: 'LinkedIn',
+        title: 'Accountant',
     })
 
     const handleChange = (e) => {
@@ -40,6 +43,11 @@ const PersonalDetails = ({ onFormSubmit }) => {
                         <input type="text" className="form-control" name="lastname" onChange={handleChange} />
                     </div>
 
+                    <div className="col-12">
+                        <label htmlFor="title" className="form-label">Title</label>
+                        <input type="text" className="form-control" name="title" onChange={handleChange} />
+                    </div>
+
                     <div className="col-6">
                         <label htmlFor="city" className="form-label">City</label>
                         <input type="text" className="form-control" name="city" onChange={handleChange} />
@@ -58,6 +66,16 @@ const PersonalDetails = ({ onFormSubmit }) => {
                     <div className="col-6">
                         <label htmlFor="email" className="form-label">Email Address</label>
                         <input type="email" className="form-control" name="email" onChange={handleChange} />
+                    </div>
+
+                    <div className="col-6">
+                        <label htmlFor="link" className="form-label">Add Personal Link</label>
+                        <input type="email" className="form-control" name="link" onChange={handleChange} />
+                    </div>
+
+                    <div className="col-6">
+                        <label htmlFor="linkName" className="form-label">Name of Link</label>
+                        <input type="email" className="form-control" name="linkName" onChange={handleChange} />
                     </div>
 
                     {/* <div className="col-12">

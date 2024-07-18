@@ -14,3 +14,20 @@
 .exp-p {
   margin-bottom: 8;
 }
+
+/* .spacer {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: rgb(62, 62, 62);
+} */
+
+.spacer {
+  width: 1px;
+  height: 20px;
+  background-color: rgb(62, 62, 62);
+}
+
+.title {
+  margin-bottom: 3px;
+}
