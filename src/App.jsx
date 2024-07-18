@@ -40,7 +40,7 @@ const [experience, setExperience] = useState([{
   state: 'NY',
   startDate: formatDate(new Date()),
   endDate: formatDate(new Date()),
-  current: false,
+  current: '',
   responsibilities: 'Managed all aspects of month-end financial close process, ensuring accuracy and timeliness in preparation of financial statements'
 }])
 

@@ -15,14 +15,28 @@ const Experience = ({ onFormSubmit }) => {
         city: '',
         startDate: formatDate(new Date()),
         endDate: formatDate(new Date()),
-        current: false,
+        current: 'hello',
         responsibilities: ''
     })
+
+    const [isChecked, setIsChecked] = useState(false);
 
 
     const handleChange = (e) => {
         setNewExp({...newExp, [e.target.name]: e.target.value })
-    } 
+        // isChecked ? setNewExp(newExp.current = 'present') : setExperience(newExp.current = '')
+    }
+    
+    const handleChecked = (e) => {
+        const isChecked = e.target.checked;
+        setIsChecked(isChecked);
+    
+        setNewExp(prevExp => ({
+            ...prevExp,
+            current: isChecked ? 'present' : ''
+        }));
+        console.log(newExp.current)
+    }
 
     const handleAddExp = () => {
         setExperience([...experience, newExp])
@@ -31,6 +45,7 @@ const Experience = ({ onFormSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onFormSubmit([experience]);
+        console.log(newExp.current);
     }
 
     return (
@@ -69,7 +84,8 @@ const Experience = ({ onFormSubmit }) => {
 
                 <div className="form-check mt-4 col offset-7">
                     <label className="form-check-label" htmlFor="flexCheckDefault">Currently work here</label>
-                    <input className="form-check-input" type="checkbox" value="" name="flexCheckDefault" />
+                    <input className="form-check-input" type="checkbox" value="present" name="flexCheckDefault" checked={isChecked}
+                        onChange={handleChecked}/>
                 </div>
 
                 <div className="col-12">
@@ -91,6 +107,8 @@ const Experience = ({ onFormSubmit }) => {
                 </div>
 
             </form>
+            <p>{isChecked ? 'The checkbox is checked.' : 'The checkbox is not checked.'}</p>
+
         </div>
     )
 }
