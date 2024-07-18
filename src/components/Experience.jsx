@@ -9,24 +9,26 @@ const Experience = ({ onFormSubmit }) => {
 
     const [experience, setExperience] = useState([]);
 
+    //state for adding new experience
     const [newExp, setNewExp] = useState({
         jobtitle: '',
         employer: '',
         city: '',
         startDate: formatDate(new Date()),
         endDate: formatDate(new Date()),
-        current: 'hello',
+        current: '',
         responsibilities: ''
     })
 
+    //state for checking job is current
     const [isChecked, setIsChecked] = useState(false);
 
-
+    //sets new experiences from target
     const handleChange = (e) => {
         setNewExp({...newExp, [e.target.name]: e.target.value })
-        // isChecked ? setNewExp(newExp.current = 'present') : setExperience(newExp.current = '')
     }
     
+    //sets checkmark
     const handleChecked = (e) => {
         const isChecked = e.target.checked;
         setIsChecked(isChecked);
@@ -35,7 +37,6 @@ const Experience = ({ onFormSubmit }) => {
             ...prevExp,
             current: isChecked ? 'present' : ''
         }));
-        console.log(newExp.current)
     }
 
     const handleAddExp = () => {
@@ -101,14 +102,12 @@ const Experience = ({ onFormSubmit }) => {
                     <Link to="/skills">
                         <button className="btn btn-outline-secondary" type="submit">Back</button>
                     </Link>
-                    <Link to="/experience">
+                    <Link to="/education">
                         <button className="btn btn-primary" type="submit">Continue</button>
                     </Link>
                 </div>
 
             </form>
-            <p>{isChecked ? 'The checkbox is checked.' : 'The checkbox is not checked.'}</p>
-
         </div>
     )
 }

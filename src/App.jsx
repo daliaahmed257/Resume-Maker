@@ -6,6 +6,7 @@ import Resume from './components/Resume'
 import Summ from './components/Summ'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
+import Education from './components/Education'
 
 function App() {
 
@@ -72,6 +73,7 @@ const handleExpSubmit = (newExperience) => {
               <Route path='/summary' element={<Summ onFormSubmit={handleFormSubmit}/>} />
               <Route path='/skills' element={<Skills onFormSubmit={handleSkillsSubmit}/>} />
               <Route path='/experience' element={<Experience onFormSubmit={handleExpSubmit}/>} />
+              <Route path='/education' element={<Education />}/>
             </Routes>
         </div>
         <div className='col'>
