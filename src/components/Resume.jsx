@@ -1,5 +1,5 @@
 
-const Resume = ({ userDetails, summary, skills, experience, education }) => {
+const Resume = ({ userDetails, summary, skills, experiences, education, }) => {
 
     const formatMonthYear = (dateString) => {
         const date = new Date(dateString);
@@ -65,7 +65,7 @@ const Resume = ({ userDetails, summary, skills, experience, education }) => {
                     <div className="col divider" />
                 </div>
 
-                {experience.map((exp, index) => (
+                {experiences.map((exp, index) => (
                     <div className="row" key={index}>
                         <p className="fw-bold col-12 mb-1">{exp.jobtitle}</p>
                         {exp.current == '' ?

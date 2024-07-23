@@ -7,6 +7,7 @@ import Summ from './components/Summ'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Education from './components/Education'
+import Fform from './components/Fform'
 
 function App() {
 
@@ -60,10 +61,6 @@ const [experience, setExperience] = useState([{
 }])
 
 
-const handleExpSubmit = (newExperience) => {
-  setExperience(...newExperience);
-};
-
 //Education
 const [education, setEducation] = useState([{
   name: 'Rutgers',
@@ -74,6 +71,23 @@ const [education, setEducation] = useState([{
 
 const handleEducationSubmit = (newEducation) => {
   setEducation(...newEducation);
+}
+
+const [experiences, setExperiences] = useState([
+  {
+    jobtitle: 'Accountant',
+    employer: 'Chase Bank',
+    city: 'New York',
+    state: 'NY',
+    startDate: formatDate(new Date()),
+    endDate: formatDate(new Date()),
+    current: '',
+    responsibilities: 'Managed all aspects of month-end financial close process, ensuring accuracy and timeliness in preparation of financial statements'
+}
+])
+
+const handleExpSubmit = (exp) => {
+  setExperiences([...exp])
 }
 
   return (
@@ -89,7 +103,7 @@ const handleEducationSubmit = (newEducation) => {
             </Routes>
         </div>
         <div className='col'>
-          <Resume userDetails={userDetails} summary={summary} skills={skills} experience={experience} education={education}/>
+          <Resume userDetails={userDetails} summary={summary} skills={skills} experiences={experiences} education={education}/>
         </div>
       </div>
     </div>
