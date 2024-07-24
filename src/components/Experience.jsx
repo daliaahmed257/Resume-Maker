@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
 
-const Experience = ({ onFormSubmit }) => {
+const Experience = ({ onFormSubmit, onDelete }) => {
 
     const formatDate = (date) => {
         return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(date);
@@ -70,7 +70,7 @@ const Experience = ({ onFormSubmit }) => {
     const handleDelete = (index) => {
         const updatedExperiences = experiences.filter((_, i) => i !== index);
         setExperiences(updatedExperiences);
-        setSubmittedExperiences(submittedExperiences.filter((_, i) => i !== index));
+        onDelete(index);
     };
 
     const toggleForm = (index) => {
@@ -80,7 +80,7 @@ const Experience = ({ onFormSubmit }) => {
 
     return (
         <div className="container">
-            <h2 className="text-center mb-5">Expience</h2>
+            <h2 className="text-center mb-5">Experience</h2>
             {
                 experiences.map((e, index) => (
                     openIndex === index ?
@@ -142,15 +142,17 @@ const Experience = ({ onFormSubmit }) => {
                 ))
             }
 
-            <div className="d-flex justify-content-end mt-5" style={{ gap: '32px' }}>
-                <Link to="/skills">
-                    <button className="btn btn-outline-secondary" type="submit">Back</button>
-                </Link>
-                <Link to="/education">
-                    <button className="btn btn-primary" type="submit">Continue</button>
-                </Link>
+            <div className="d-flex justify-content-between mt-5">
+            <button className="btn btn-outline-secondary" onClick={handleAddExp}>Add Another</button>
+                <div className="d-flex " style={{ gap: '32px' }}>
+                    <Link to="/skills">
+                        <button className="btn btn-outline-secondary" type="submit">Back</button>
+                    </Link>
+                    <Link to="/education">
+                        <button className="btn btn-primary" type="submit">Continue</button>
+                    </Link>
+                </div>
             </div>
-            <button onClick={handleAddExp}>Add Another</button>
 
         </div>
     )

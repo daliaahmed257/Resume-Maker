@@ -7,7 +7,6 @@ import Summ from './components/Summ'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Education from './components/Education'
-import Fform from './components/Fform'
 
 function App() {
 
@@ -90,6 +89,10 @@ const handleExpSubmit = (exp) => {
   setExperiences([...exp])
 }
 
+const handleExpDelete = (index) => {
+  setExperiences((prevExperiences) => prevExperiences.filter((_, i) => i !== index));
+};
+
   return (
     <div className='container mt-5'>
       <div className='row'>
@@ -98,7 +101,7 @@ const handleExpSubmit = (exp) => {
               <Route path='/' element={<PersonalDetails onFormSubmit={handleFormSubmit} />} />
               <Route path='/summary' element={<Summ onFormSubmit={handleFormSubmit}/>} />
               <Route path='/skills' element={<Skills onFormSubmit={handleSkillsSubmit}/>} />
-              <Route path='/experience' element={<Experience onFormSubmit={handleExpSubmit}/>} />
+              <Route path='/experience' element={<Experience onFormSubmit={handleExpSubmit} onDelete={handleExpDelete}/>} />
               <Route path='/education' element={<Education onFormSubmit={handleEducationSubmit}/>}/>
             </Routes>
         </div>
