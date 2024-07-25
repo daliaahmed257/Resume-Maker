@@ -10,7 +10,6 @@ body {
 
 .resume {
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -81,7 +80,7 @@ body {
 }
 
 .btn-save {
-  color:  #6B9322;
+  color: #6B9322;
 }
 
 .btn-delete {
@@ -102,4 +101,15 @@ body {
 
 .drawer-close h5 {
   margin-bottom: 0;
+}
+
+.pdf {
+  height: 792;
+  width: 612;
+  padding: 'none';
+  background-color: 'white';
+  margin: 'auto';
+  overflow-x: 'hidden';
+  overflow-y: 'hidden';
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

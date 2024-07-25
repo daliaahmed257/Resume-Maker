@@ -62,7 +62,6 @@ const Experience = ({ onFormSubmit, onDelete }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // setSubmittedExperiences(experiences);
         onFormSubmit(experiences)
         setOpenIndex(null);
     };
@@ -150,13 +149,13 @@ const Experience = ({ onFormSubmit, onDelete }) => {
                 }
             </div>
 
-
             <div className="d-flex justify-content-between mt-5">
-                <button className="btn btn-add" onClick={handleAddExp}>Add Another</button>
+                <Link to="/skills">
+                    <button className="btn btn-outline-secondary" type="submit">Back</button>
+                </Link>
+
                 <div className="d-flex " style={{ gap: '32px' }}>
-                    <Link to="/skills">
-                        <button className="btn btn-outline-secondary" type="submit">Back</button>
-                    </Link>
+                    <button className="btn btn-add" onClick={handleAddExp}>Add Another</button>
                     <Link to="/education">
                         <button className="btn btn-primary" type="submit">Continue</button>
                     </Link>

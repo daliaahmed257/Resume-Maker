@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import PersonalDetails from './components/PersonalDetails'
@@ -8,8 +8,12 @@ import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Education from './components/Education'
 import Header from './components/Header'
+import { PDFExport } from '@progress/kendo-react-pdf';
 
 function App() {
+
+  const pdfExportComponent = useRef(null);
+
 
   //user details
   const [userDetails, setUserDetails] = useState({
@@ -73,6 +77,7 @@ function App() {
     setEducation(...newEducation);
   }
 
+
   const [experiences, setExperiences] = useState([
     {
       jobtitle: 'Accountant',
@@ -94,6 +99,12 @@ function App() {
     setExperiences((prevExperiences) => prevExperiences.filter((_, i) => i !== index));
   };
 
+  const exportPDF = () => {
+    if (pdfExportComponent.current) {
+      pdfExportComponent.current.save();
+    }
+  }
+
   return (
     <div className='mb-5'>
       <Header />
@@ -108,10 +119,28 @@ function App() {
               <Route path='/education' element={<Education onFormSubmit={handleEducationSubmit} />} />
             </Routes>
           </div>
+
           <div className='col'>
-            <Resume userDetails={userDetails} summary={summary} skills={skills} experiences={experiences} education={education} />
+            <PDFExport paperSize={'Letter'}
+              fileName="_____.pdf"
+              title=""
+              subject=""
+              keywords=""
+              ref={pdfExportComponent}>
+              <div className="pdf">
+                <Resume userDetails={userDetails} summary={summary} skills={skills} experiences={experiences} education={education} />
+              </div>
+            </PDFExport>
+            <button onClick={exportPDF}>download</button>
           </div>
+
+          {/* <div className='col'>
+            <Resume userDetails={userDetails} summary={summary} skills={skills} experiences={experiences} education={education} />
+          </div> */}
         </div>
+
+
+
       </div>
 
     </div>

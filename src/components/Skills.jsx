@@ -37,7 +37,7 @@ const Skills = ({ onFormSubmit }) => {
                     </div>
                 </div>
 
-                <div className="d-flex justify-content-end mt-5" style={{ gap: '32px' }}>
+                <div className="d-flex justify-content-between mt-5" style={{ gap: '32px' }}>
                     <Link to="/summary">
                         <button className="btn btn-outline-secondary" type="submit">Back</button>
                     </Link>
