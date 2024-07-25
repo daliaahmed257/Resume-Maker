@@ -6,7 +6,7 @@ const Skills = ({ onFormSubmit }) => {
     const [newSkill, setNewSkill] = useState('')
 
     const handleChange = (e) => {
-        setNewSkill([e.target.value] )
+        setNewSkill([e.target.value])
         console.log(skills)
     }
 
@@ -24,17 +24,18 @@ const Skills = ({ onFormSubmit }) => {
 
     return (
         <div className="container">
-            <h2 className="text-center">Key Skills</h2>
-            <p>Add skills that align with the job requirements. Show employers you're confident of the work you do!</p>
-            <form className="row g-3" onSubmit={handleSubmit}>
-                <div className="col-12">
-                    <label htmlFor="skills" className="form-label">Skill</label>
-                    <input type="text" className="form-control" name="skills" onChange={handleChange} />
-                </div>
+            <h2 className="mb-5">Key Skills</h2>
+            <form onSubmit={handleSubmit}>
+                <div className="row g-3 form">
+                    <div className="col-12">
+                        <label htmlFor="skills" className="form-label">Skill</label>
+                        <input type="text" className="form-control" name="skills" onChange={handleChange} />
+                    </div>
 
                     <div className="col-12">
-                        <button type="submit" className="btn" onClick={handleAddSkill}>+ Add</button>
+                        <button type="submit" className="btn btn-save fw-medium" onClick={handleAddSkill}>+ Add</button>
                     </div>
+                </div>
 
                 <div className="d-flex justify-content-end mt-5" style={{ gap: '32px' }}>
                     <Link to="/summary">

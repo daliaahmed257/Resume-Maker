@@ -95,7 +95,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='mb-5'>
       <Header />
       <div className='container'>
         <div className='row'>

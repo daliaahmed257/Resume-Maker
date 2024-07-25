@@ -80,70 +80,79 @@ const Experience = ({ onFormSubmit, onDelete }) => {
 
     return (
         <div className="container">
-            <h2 className="text-center mb-5">Experience</h2>
-            {
-                experiences.map((e, index) => (
-                    openIndex === index ?
-                        (<div className="drawer" key={index}>
-                            <form className="row g-3" onSubmit={handleSubmit}>
-                                <div className="col-6">
-                                    <label htmlFor="jobtitle" className="form-label">Job Title</label>
-                                    <input type="text" className="form-control" name="jobtitle" value={e.jobtitle} onChange={(e) => handleChange(e, index)} />
-                                </div>
+            <h2 className="mb-5">Experience</h2>
+            <div className="row g-3">
+                {
+                    experiences.map((e, index) => (
+                        openIndex === index ?
+                            (<div className="drawer col-12" key={index}>
+                                <form className="row form mt-2" onSubmit={handleSubmit}>
+                                    <div className="col-6">
+                                        <label htmlFor="jobtitle" className="form-label">Job Title</label>
+                                        <input type="text" className="form-control" name="jobtitle" value={e.jobtitle} onChange={(e) => handleChange(e, index)} />
+                                    </div>
 
-                                <div className="col-6">
-                                    <label htmlFor="employer" className="form-label">Employer</label>
-                                    <input type="text" className="form-control" name="employer" value={e.employer} onChange={(e) => handleChange(e, index)} />
-                                </div>
+                                    <div className="col-6">
+                                        <label htmlFor="employer" className="form-label">Employer</label>
+                                        <input type="text" className="form-control" name="employer" value={e.employer} onChange={(e) => handleChange(e, index)} />
+                                    </div>
 
-                                <div className="col-6">
-                                    <label htmlFor="city" className="form-label">City</label>
-                                    <input type="text" className="form-control" name="city" value={e.city} onChange={(e) => handleChange(e, index)} />
-                                </div>
+                                    <div className="col-6">
+                                        <label htmlFor="city" className="form-label">City</label>
+                                        <input type="text" className="form-control" name="city" value={e.city} onChange={(e) => handleChange(e, index)} />
+                                    </div>
 
-                                <div className="col-6">
-                                    <label htmlFor="state" className="form-label">State</label>
-                                    <input type="text" className="form-control" name="state" value={e.state} onChange={(e) => handleChange(e, index)} />
-                                </div>
+                                    <div className="col-6">
+                                        <label htmlFor="state" className="form-label">State</label>
+                                        <input type="text" className="form-control" name="state" value={e.state} onChange={(e) => handleChange(e, index)} />
+                                    </div>
 
-                                <div className="col-6">
-                                    <label htmlFor="startDate" className="form-label">Start Date</label>
-                                    <input type="month" className="form-control" name="startDate" value={e.startDate} onChange={(e) => handleChange(e, index)} />
-                                </div>
+                                    <div className="col-6">
+                                        <label htmlFor="startDate" className="form-label">Start Date</label>
+                                        <input type="month" className="form-control" name="startDate" value={e.startDate} onChange={(e) => handleChange(e, index)} />
+                                    </div>
 
-                                <div className="col-6">
-                                    <label htmlFor="endDate" className="form-label">End Date</label>
-                                    <input type="month" className="form-control" name="endDate" value={e.endDate} onChange={(e) => handleChange(e, index)} />
-                                </div>
+                                    <div className="col-6">
+                                        <label htmlFor="endDate" className="form-label">End Date</label>
+                                        <input type="month" className="form-control" name="endDate" value={e.endDate} onChange={(e) => handleChange(e, index)} />
+                                    </div>
 
-                                <div className="form-check mt-4 col offset-7">
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">Currently work here</label>
-                                    <input className="form-check-input" type="checkbox" value="present" name="flexCheckDefault" onChange={(e) => handleChecked(e, index)}
-                                    />
-                                </div>
+                                    <div className="form-check mt-4 col offset-7">
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">Currently work here</label>
+                                        <input className="form-check-input" type="checkbox" value="present" name="flexCheckDefault" onChange={(e) => handleChecked(e, index)}
+                                        />
+                                    </div>
 
-                                <div className="col-12">
-                                    <label htmlFor="responsibilities" className="form-label">Responsiblities</label>
-                                    <textarea className="form-control" name="responsibilities" value={e.responsibilities} onChange={(e) => handleChange(e, index)} />
-                                </div>
+                                    <div className="col-12">
+                                        <label htmlFor="responsibilities" className="form-label">Responsiblities</label>
+                                        <textarea className="form-control" name="responsibilities" value={e.responsibilities} onChange={(e) => handleChange(e, index)} />
+                                    </div>
 
-                                <div className="col-12 text-end">
-                                    <button type="submit" className="btn">Save</button>
-                                    <button type="button" className="btn" onClick={() => handleDelete(index)}>Remove</button>
-                                </div>
+                                    <div className="col-12 d-flex btn-delete fw-medium">
+                                        <div className="d-flex align-items-center me-3" onClick={() => handleDelete(index)}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z" /></svg>
+                                            <button type="button" className="btn" >Remove</button>
+                                        </div>
+                                        <div className="d-flex align-items-center btn-save fw-medium">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15"><path fill="none" stroke="currentColor" d="M4.5 14.5v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m3 0h-12a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1h8.586a1 1 0 0 1 .707.293l3.414 3.414a1 1 0 0 1 .293.707V13.5a1 1 0 0 1-1 1Z" /></svg>
+                                            <button type="submit" className="btn btn-save">Save</button>
+                                        </div>
+                                    </div>
 
-                            </form>
-                        </div>)
-                        :
-                        <div className="drawer" key={index} onClick={() => toggleForm(index)}>
-                            <p>{e.jobtitle}</p>
-                        </div>
+                                </form>
+                            </div>)
+                            :
+                            <div className="drawer-close col-12" key={index} onClick={() => toggleForm(index)}>
+                                <h5>{e.jobtitle}</h5>
+                            </div>
 
-                ))
-            }
+                    ))
+                }
+            </div>
+
 
             <div className="d-flex justify-content-between mt-5">
-            <button className="btn btn-outline-secondary" onClick={handleAddExp}>Add Another</button>
+                <button className="btn btn-add" onClick={handleAddExp}>Add Another</button>
                 <div className="d-flex " style={{ gap: '32px' }}>
                     <Link to="/skills">
                         <button className="btn btn-outline-secondary" type="submit">Back</button>

@@ -24,17 +24,16 @@ const Summ = ({ onFormSubmit }) => {
 
     return (
         <div className="container">
-            <h2 className="text-center">Summary</h2>
-            <form className="row g-3" onSubmit={handleSubmit}>
-                <div className="col-12">
-                    <label htmlFor="personalTitle" className="form-label">Job Title</label>
-                    <input type="text" className="form-control" name="personalTitle" onChange={handleChange} />
+            <h2 className="mb-5">Summary</h2>
+            <form onSubmit={handleSubmit}>
+                <div className="row g-3 form">
+
+                    <div className="col-12">
+                        <label htmlFor="summary" className="form-label">Summary</label>
+                        <textarea className="form-control" name="summary" onChange={handleChange} />
+                    </div>
                 </div>
 
-                <div className="col-12">
-                    <label htmlFor="summary" className="form-label">Summary</label>
-                    <textarea className="form-control" name="summary" onChange={handleChange} />
-                </div>
 
                 <div className="d-flex justify-content-end mt-5" style={{ gap: '32px' }}>
                     <Link to="/">

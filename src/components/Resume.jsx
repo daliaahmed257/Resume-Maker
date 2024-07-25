@@ -12,15 +12,6 @@ const Resume = ({ userDetails, summary, skills, experiences, education, }) => {
         <div className="container resume p-3">
 
             <div className="container">
-                {/* <div className="row">
-                    <div className="row align-items-center">
-                        <h2 className="col-auto">{userDetails.firstname} {userDetails.lastname}</h2>
-                        <div className="col-auto d-flex justify-content-center">
-                            <div className="spacer"></div>
-                        </div>
-                        <h5 className="col-auto title">{userDetails.title}</h5>
-                    </div> */}
-
                     <div className="row">
                     <div className="row align-items-center">
                         <h2 className="col-auto">{userDetails.firstname} {userDetails.lastname}</h2>

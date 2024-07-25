@@ -31,8 +31,9 @@ const PersonalDetails = ({ onFormSubmit }) => {
 
     return (
         <div className="container">
-                <h2 className="text-center mb-5">Personal Details</h2>
-                <form className="row g-3" onSubmit={handleSubmit}>
+            <h2 className=" mb-5">Personal Details</h2>
+            <form onSubmit={handleSubmit}>
+                <div className="row g-3 form">
                     <div className="col-6">
                         <label htmlFor="firstname" className="form-label">First Name</label>
                         <input type="text" className="form-control" name="firstname" onChange={handleChange} />
@@ -70,22 +71,20 @@ const PersonalDetails = ({ onFormSubmit }) => {
 
                     <div className="col-6">
                         <label htmlFor="link" className="form-label">Add Personal Link</label>
-                        <input type="email" className="form-control" name="link" onChange={handleChange} />
+                        <input type="text" className="form-control" name="link" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="linkName" className="form-label">Name of Link</label>
-                        <input type="email" className="form-control" name="linkName" onChange={handleChange} />
+                        <input type="text" className="form-control" name="linkName" onChange={handleChange} />
                     </div>
 
-                    {/* <div className="col-12">
-                        <button type="submit" className="btn btn-primary">Add</button>
-                    </div> */}
+                </div>
 
-                    <div className="d-flex justify-content-end mt-5">
-                        <button className="btn btn-primary" type="submit">Continue</button>
-                    </div>
-                </form>
+                <div className="d-flex justify-content-end mt-5">
+                    <button className="btn btn-primary" type="submit">Continue</button>
+                </div>
+            </form>
 
         </div>
     )
