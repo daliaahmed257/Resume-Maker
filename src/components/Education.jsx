@@ -52,7 +52,7 @@ const Education = ({ onFormSubmit }) => {
                     </div>
 
                     <div className="col-12">
-                        <button type="submit" className="btn" onClick={handleAddEducation}>+ Add</button>
+                        <button type="submit" className="btn btn-save" onClick={handleAddEducation}>+ Add</button>
                     </div>
                 </div>
 
@@ -60,8 +60,8 @@ const Education = ({ onFormSubmit }) => {
                     <Link to="/experience">
                         <button className="btn btn-outline-secondary" type="submit">Back</button>
                     </Link>
-                    <Link to="/education">
-                        <button className="btn btn-primary" type="submit">Download</button>
+                    <Link to="/download">
+                        <button className="btn btn-primary" type="submit">Continue</button>
                     </Link>
                 </div>
             </form>

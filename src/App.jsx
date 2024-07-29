@@ -1,19 +1,22 @@
 import { useState, useRef } from 'react'
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import PersonalDetails from './components/PersonalDetails'
-import Resume from './components/Resume'
-import Summ from './components/Summ'
-import Skills from './components/Skills'
-import Experience from './components/Experience'
-import Education from './components/Education'
-import Header from './components/Header'
+import { Routes, Route } from 'react-router-dom';
+import PersonalDetails from './components/PersonalDetails';
+import Resume from './components/Resume';
+import Summ from './components/Summ';
+import Skills from './components/Skills';
+import Experience from './components/Experience';
+import Education from './components/Education';
+import Header from './components/Header';
 import { PDFExport } from '@progress/kendo-react-pdf';
+import Download from './components/Download';
+import { useLocation } from 'react-router-dom';
 
 function App() {
 
   const pdfExportComponent = useRef(null);
 
+  const location = useLocation();
 
   //user details
   const [userDetails, setUserDetails] = useState({
@@ -49,20 +52,13 @@ function App() {
     setSkills(details);
   }
 
+  // const formatDate = (date) => {
+  //   return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(date);
+  // };
+
   const formatDate = (date) => {
-    return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(date);
+    return date.toISOString().substring(0, 7);
   };
-  //experience
-  const [experience, setExperience] = useState([{
-    jobtitle: 'Accountant',
-    employer: 'Chase Bank',
-    city: 'New York',
-    state: 'NY',
-    startDate: formatDate(new Date()),
-    endDate: formatDate(new Date()),
-    current: '',
-    responsibilities: 'Managed all aspects of month-end financial close process, ensuring accuracy and timeliness in preparation of financial statements'
-  }])
 
 
   //Education
@@ -99,17 +95,12 @@ function App() {
     setExperiences((prevExperiences) => prevExperiences.filter((_, i) => i !== index));
   };
 
-  const exportPDF = () => {
-    if (pdfExportComponent.current) {
-      pdfExportComponent.current.save();
-    }
-  }
 
   return (
     <div className='mb-5'>
       <Header />
-      <div className='container'>
-        <div className='row'>
+      <div className='container d-flex justify-content-center'>
+        <div className='row' style={{ maxWidth: `${location.pathname === '/download' ? '800px' : ''}` }}>
           <div className='col'>
             <Routes>
               <Route path='/' element={<PersonalDetails onFormSubmit={handleFormSubmit} />} />
@@ -119,6 +110,11 @@ function App() {
               <Route path='/education' element={<Education onFormSubmit={handleEducationSubmit} />} />
             </Routes>
           </div>
+
+          <Routes>
+            <Route path='/download' element={<Download pdfExportComponent={pdfExportComponent} />} />
+          </Routes>
+
 
           <div className='col'>
             <PDFExport paperSize={'Letter'}
@@ -131,8 +127,8 @@ function App() {
                 <Resume userDetails={userDetails} summary={summary} skills={skills} experiences={experiences} education={education} />
               </div>
             </PDFExport>
-            <button onClick={exportPDF}>download</button>
           </div>
+
 
           {/* <div className='col'>
             <Resume userDetails={userDetails} summary={summary} skills={skills} experiences={experiences} education={education} />

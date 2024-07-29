@@ -20,7 +20,6 @@ const PersonalDetails = ({ onFormSubmit }) => {
 
     const handleChange = (e) => {
         setUserDetails({ ...userDetails, [e.target.name]: e.target.value })
-        console.log(userDetails)
     }
 
     const handleSubmit = (e) => {
@@ -82,7 +81,7 @@ const PersonalDetails = ({ onFormSubmit }) => {
                 </div>
 
                 <div className="d-flex justify-content-end mt-5">
-                    <button className="btn btn-primary" type="submit">Continue</button>
+                    <button className="btn btn-primary" type="submit">Add and continue</button>
                 </div>
             </form>
 

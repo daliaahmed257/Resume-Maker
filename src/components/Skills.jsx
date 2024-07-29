@@ -7,13 +7,11 @@ const Skills = ({ onFormSubmit }) => {
 
     const handleChange = (e) => {
         setNewSkill([e.target.value])
-        console.log(skills)
     }
 
     const handleAddSkill = () => {
         setSkills([...skills, newSkill]);
         setNewSkill('');
-        console.log(skills)
     }
 
     const handleSubmit = (e) => {
@@ -24,12 +22,12 @@ const Skills = ({ onFormSubmit }) => {
 
     return (
         <div className="container">
-            <h2 className="mb-5">Key Skills</h2>
+            <h2>Key Skills</h2>
+            <p className="mb-5">Add skills that relate to job requirements</p>
             <form onSubmit={handleSubmit}>
                 <div className="row g-3 form">
                     <div className="col-12">
-                        <label htmlFor="skills" className="form-label">Skill</label>
-                        <input type="text" className="form-control" name="skills" onChange={handleChange} />
+                        <input type="text" className="form-control" name="skills" value={newSkill} onChange={handleChange} />
                     </div>
 
                     <div className="col-12">

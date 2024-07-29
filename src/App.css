@@ -10,6 +10,7 @@ body {
 
 .resume {
   background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -32,7 +33,7 @@ body {
   background-color: rgb(62, 62, 62);
 }
 
-.title {
+.jobtitle {
   margin-bottom: 3px;
 }
 
@@ -91,6 +92,10 @@ body {
   background-color: #A2AE8c;
 }
 
+.btn-add:hover {
+  background-color: #5a7b1c;;
+}
+
 .drawer-close {
   background-color: white;
   padding: 24px 32px;
@@ -111,5 +116,30 @@ body {
   margin: 'auto';
   overflow-x: 'hidden';
   overflow-y: 'hidden';
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.responsibility {
+  white-space: pre-line;
+}
+
+/* RESUME */
+
+.title {
+  font-family: Arial, sans-serif;
+  font-size: 17pt;
+}
+
+.subtitle {
+  font-family: Arial, sans-serif;
+ font-size: 10pt;
+}
+
+.text {
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+}
+
+li::marker {
+  font-size: .5rem;
+  margin-bottom: 2px;
 }

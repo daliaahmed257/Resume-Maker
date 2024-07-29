@@ -24,13 +24,14 @@ const Summ = ({ onFormSubmit }) => {
 
     return (
         <div className="container">
-            <h2 className="mb-5">Summary</h2>
+            <h2>Summary</h2>
+            <p className="mb-5">Create a powerful statment that explains who you are and your role</p>
             <form onSubmit={handleSubmit}>
                 <div className="row g-3 form">
 
                     <div className="col-12">
-                        <label htmlFor="summary" className="form-label">Summary</label>
-                        <textarea className="form-control" name="summary" onChange={handleChange} />
+                        {/* <label htmlFor="summary" className="form-label">Create a powerful statment that explains who you are and your role</label> */}
+                        <textarea className="form-control" name="summary" onChange={handleChange} style={{minHeight: '150px'}}/>
                     </div>
                 </div>
 
@@ -39,7 +40,7 @@ const Summ = ({ onFormSubmit }) => {
                     <Link to="/">
                         <button className="btn btn-outline-secondary" type="submit">Back</button>
                     </Link>
-                    <button className="btn btn-primary" type="submit">Continue</button>
+                    <button className="btn btn-primary" type="submit">Add and continue</button>
                 </div>
             </form>
         </div>

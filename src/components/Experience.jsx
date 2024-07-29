@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Experience = ({ onFormSubmit, onDelete }) => {
 
     const formatDate = (date) => {
-        return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(date);
-    };
+        return date.toISOString().substring(0, 7);
+      };
 
 
     const [experiences, setExperiences] = useState([
@@ -21,7 +21,6 @@ const Experience = ({ onFormSubmit, onDelete }) => {
         }
     ]);
 
-    const [submittedExperiences, setSubmittedExperiences] = useState([])
     const [openIndex, setOpenIndex] = useState(0);
 
 
@@ -124,7 +123,7 @@ const Experience = ({ onFormSubmit, onDelete }) => {
 
                                     <div className="col-12">
                                         <label htmlFor="responsibilities" className="form-label">Responsiblities</label>
-                                        <textarea className="form-control" name="responsibilities" value={e.responsibilities} onChange={(e) => handleChange(e, index)} />
+                                        <textarea className="form-control" name="responsibilities" value={e.responsibilities} onChange={(e) => handleChange(e, index)}/>
                                     </div>
 
                                     <div className="col-12 d-flex btn-delete fw-medium">
@@ -142,7 +141,7 @@ const Experience = ({ onFormSubmit, onDelete }) => {
                             </div>)
                             :
                             <div className="drawer-close col-12" key={index} onClick={() => toggleForm(index)}>
-                                <h5>{e.jobtitle}</h5>
+                                <h5>{e.jobtitle} - {e.employer}</h5>
                             </div>
 
                     ))
