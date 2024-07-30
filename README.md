@@ -1,8 +1,13 @@
-# React + Vite
+# CV Maker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## **_Date: 07/20/2024_**
 
-Currently, two official plugins are available:
+### **_By: Dalia Ahmed_**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### **_Deployment_**
+
+[CV Maker](https://simple-cvmaker.netlify.app/)
+
+### **_Description_**
+
+CV Maker is a React App that creates a resume that users can download for free without logging in.
