@@ -35,52 +35,52 @@ const PersonalDetails = ({ onFormSubmit }) => {
                 <div className="row g-3 form">
                     <div className="col-6">
                         <label htmlFor="firstname" className="form-label">First Name</label>
-                        <input type="text" className="form-control" name="firstname" onChange={handleChange} />
+                        <input type="text" className="form-control" name="firstname" id="firstname" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="lastname" className="form-label">Last Name</label>
-                        <input type="text" className="form-control" name="lastname" onChange={handleChange} />
+                        <input type="text" className="form-control" name="lastname" id="lastname" onChange={handleChange} />
                     </div>
 
                     <div className="col-12">
                         <label htmlFor="title" className="form-label">Title</label>
-                        <input type="text" className="form-control" name="title" onChange={handleChange} />
+                        <input type="text" className="form-control" name="title" id="title" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="city" className="form-label">City</label>
-                        <input type="text" className="form-control" name="city" onChange={handleChange} />
+                        <input type="text" className="form-control" name="city" id="city" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="state" className="form-label">State</label>
-                        <input type="text" className="form-control" name="state" onChange={handleChange} />
+                        <input type="text" className="form-control" name="state" id="state" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="phone" className="form-label">Phone</label>
-                        <input type="text" className="form-control" name="phone" onChange={handleChange} />
+                        <input type="text" className="form-control" name="phone" id="phone" autoComplete="tel" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="email" className="form-label">Email Address</label>
-                        <input type="email" className="form-control" name="email" onChange={handleChange} />
+                        <input type="email" className="form-control" name="email" id="email" autoComplete="email" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="link" className="form-label">Add Personal Link</label>
-                        <input type="text" className="form-control" name="link" onChange={handleChange} />
+                        <input type="text" className="form-control" name="link" id="link" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="linkName" className="form-label">Name of Link</label>
-                        <input type="text" className="form-control" name="linkName" onChange={handleChange} />
+                        <input type="text" className="form-control" name="linkName" id="linkName" onChange={handleChange} />
                     </div>
 
                 </div>
 
-                <div className="d-flex justify-content-end mt-5">
+                <div className="d-flex justify-content-end mt-5 mb-5">
                     <button className="btn btn-primary" type="submit">Add and continue</button>
                 </div>
             </form>

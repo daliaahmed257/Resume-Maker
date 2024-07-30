@@ -101,7 +101,7 @@ function App() {
       <Header />
       <div className='container d-flex justify-content-center'>
         <div className='row' style={{ maxWidth: `${location.pathname === '/download' ? '800px' : ''}` }}>
-          <div className='col'>
+          <div className='col-12 col-md-6'>
             <Routes>
               <Route path='/' element={<PersonalDetails onFormSubmit={handleFormSubmit} />} />
               <Route path='/summary' element={<Summ onFormSubmit={handleFormSubmit} />} />
@@ -116,7 +116,7 @@ function App() {
           </Routes>
 
 
-          <div className='col'>
+          <div className={`col-12 ${location.pathname === '/download' ? 'col-12' : 'col-md-6'}`}>
             <PDFExport paperSize={'Letter'}
               fileName="_____.pdf"
               title=""
@@ -128,14 +128,7 @@ function App() {
               </div>
             </PDFExport>
           </div>
-
-
-          {/* <div className='col'>
-            <Resume userDetails={userDetails} summary={summary} skills={skills} experiences={experiences} education={education} />
-          </div> */}
         </div>
-
-
 
       </div>
 

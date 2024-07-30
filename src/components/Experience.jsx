@@ -5,7 +5,7 @@ const Experience = ({ onFormSubmit, onDelete }) => {
 
     const formatDate = (date) => {
         return date.toISOString().substring(0, 7);
-      };
+    };
 
 
     const [experiences, setExperiences] = useState([
@@ -78,7 +78,7 @@ const Experience = ({ onFormSubmit, onDelete }) => {
 
     return (
         <div className="container">
-            <h2 className="mb-5">Experience</h2>
+            <h2 className="mb-3">Experience</h2>
             <div className="row g-3">
                 {
                     experiences.map((e, index) => (
@@ -87,43 +87,43 @@ const Experience = ({ onFormSubmit, onDelete }) => {
                                 <form className="row form mt-2" onSubmit={handleSubmit}>
                                     <div className="col-6">
                                         <label htmlFor="jobtitle" className="form-label">Job Title</label>
-                                        <input type="text" className="form-control" name="jobtitle" value={e.jobtitle} onChange={(e) => handleChange(e, index)} />
+                                        <input type="text" className="form-control" name="jobtitle" id="jobtitle" value={e.jobtitle} onChange={(e) => handleChange(e, index)} />
                                     </div>
 
                                     <div className="col-6">
                                         <label htmlFor="employer" className="form-label">Employer</label>
-                                        <input type="text" className="form-control" name="employer" value={e.employer} onChange={(e) => handleChange(e, index)} />
+                                        <input type="text" className="form-control" name="employer" id="employer" value={e.employer} onChange={(e) => handleChange(e, index)} />
                                     </div>
 
                                     <div className="col-6">
                                         <label htmlFor="city" className="form-label">City</label>
-                                        <input type="text" className="form-control" name="city" value={e.city} onChange={(e) => handleChange(e, index)} />
+                                        <input type="text" className="form-control" name="city" id="city" value={e.city} onChange={(e) => handleChange(e, index)} />
                                     </div>
 
                                     <div className="col-6">
                                         <label htmlFor="state" className="form-label">State</label>
-                                        <input type="text" className="form-control" name="state" value={e.state} onChange={(e) => handleChange(e, index)} />
+                                        <input type="text" className="form-control" name="state" id="state" value={e.state} onChange={(e) => handleChange(e, index)} />
                                     </div>
 
                                     <div className="col-6">
                                         <label htmlFor="startDate" className="form-label">Start Date</label>
-                                        <input type="month" className="form-control" name="startDate" value={e.startDate} onChange={(e) => handleChange(e, index)} />
+                                        <input type="month" className="form-control" name="startDate" id="startDate" value={e.startDate} onChange={(e) => handleChange(e, index)} />
                                     </div>
 
                                     <div className="col-6">
                                         <label htmlFor="endDate" className="form-label">End Date</label>
-                                        <input type="month" className="form-control" name="endDate" value={e.endDate} onChange={(e) => handleChange(e, index)} />
+                                        <input type="month" className="form-control" name="endDate" id="endDate" value={e.endDate} onChange={(e) => handleChange(e, index)} />
                                     </div>
 
                                     <div className="form-check mt-4 col offset-7">
                                         <label className="form-check-label" htmlFor="flexCheckDefault">Currently work here</label>
-                                        <input className="form-check-input" type="checkbox" value="present" name="flexCheckDefault" onChange={(e) => handleChecked(e, index)}
+                                        <input className="form-check-input" type="checkbox" value="present" name="flexCheckDefault" id="flexCheckDefault" onChange={(e) => handleChecked(e, index)}
                                         />
                                     </div>
 
                                     <div className="col-12">
                                         <label htmlFor="responsibilities" className="form-label">Responsiblities</label>
-                                        <textarea className="form-control" name="responsibilities" value={e.responsibilities} onChange={(e) => handleChange(e, index)}/>
+                                        <textarea className="form-control" name="responsibilities" id="responsibilities" value={e.responsibilities} onChange={(e) => handleChange(e, index)} />
                                     </div>
 
                                     <div className="col-12 d-flex btn-delete fw-medium">
@@ -148,7 +148,7 @@ const Experience = ({ onFormSubmit, onDelete }) => {
                 }
             </div>
 
-            <div className="d-flex justify-content-between mt-5">
+            <div className="d-flex justify-content-between mt-5 mb-5">
                 <Link to="/skills">
                     <button className="btn btn-outline-secondary" type="submit">Back</button>
                 </Link>

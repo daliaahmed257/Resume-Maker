@@ -30,13 +30,12 @@ const Summ = ({ onFormSubmit }) => {
                 <div className="row g-3 form">
 
                     <div className="col-12">
-                        {/* <label htmlFor="summary" className="form-label">Create a powerful statment that explains who you are and your role</label> */}
-                        <textarea className="form-control" name="summary" onChange={handleChange} style={{minHeight: '150px'}}/>
+                        <textarea className="form-control" name="summary" onChange={handleChange} style={{minHeight: '150px'}} id="summary"/>
                     </div>
                 </div>
 
 
-                <div className="d-flex justify-content-between mt-5" style={{ gap: '32px' }}>
+                <div className="d-flex justify-content-between mt-5 mb-5" style={{ gap: '32px' }}>
                     <Link to="/">
                         <button className="btn btn-outline-secondary" type="submit">Back</button>
                     </Link>

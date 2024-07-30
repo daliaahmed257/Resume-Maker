@@ -33,22 +33,22 @@ const Education = ({ onFormSubmit }) => {
                 <div className="row g-3 form">
                     <div className="col-6">
                         <label htmlFor="name" className="form-label">School Name</label>
-                        <input type="text" className="form-control" name="name" onChange={handleChange} />
+                        <input type="text" className="form-control" name="name" id="name" autoComplete="school" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="location" className="form-label">School Location</label>
-                        <input type="text" className="form-control" name="location" onChange={handleChange} />
+                        <input type="text" className="form-control" name="location" id="location" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="degree" className="form-label">Degree</label>
-                        <input type="text" className="form-control" name="degree" onChange={handleChange} />
+                        <input type="text" className="form-control" name="degree" id="degree" onChange={handleChange} />
                     </div>
 
                     <div className="col-6">
                         <label htmlFor="study" className="form-label">Field of Study</label>
-                        <input type="text" className="form-control" name="study" onChange={handleChange} />
+                        <input type="text" className="form-control" name="study" id="study" onChange={handleChange} />
                     </div>
 
                     <div className="col-12">
@@ -56,7 +56,7 @@ const Education = ({ onFormSubmit }) => {
                     </div>
                 </div>
 
-                <div className="d-flex justify-content-between mt-5" style={{ gap: '32px' }}>
+                <div className="d-flex justify-content-between mt-5 mb-5" style={{ gap: '32px' }}>
                     <Link to="/experience">
                         <button className="btn btn-outline-secondary" type="submit">Back</button>
                     </Link>
